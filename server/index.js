@@ -2,9 +2,12 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
+// Serve React build
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -272,6 +275,11 @@ io.on('connection', (socket) => {
       }
     }
   });
+});
+
+// All other routes -> serve React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
 server.listen(PORT, () => {
