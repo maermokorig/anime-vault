@@ -1,0 +1,210 @@
+.home-page {
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.04);
+  transition: transform 8s ease;
+  filter: blur(0px);
+}
+
+.hero:hover::before { transform: scale(1.08); }
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 15, 0.92) 0%,
+    rgba(8, 8, 15, 0.65) 50%,
+    rgba(8, 8, 15, 0.2) 100%
+  );
+}
+
+.hero-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--bg-root), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 68px;
+  max-width: 680px;
+  gap: 16px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--accent-gradient);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  width: fit-content;
+}
+
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(240, 240, 255, 0.75);
+  max-width: 520px;
+}
+
+.hero-meta {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Content Area ── */
+.home-content {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.home-content.no-hero {
+  padding-top: 120px;
+}
+
+/* ── Category Tabs ── */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.cat-tab {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 9px 22px;
+  border-radius: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.cat-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.cat-tab.active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* ── Section Header ── */
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.result-count {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Anime Grid ── */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 22px;
+}
+
+/* ── Skeleton Grid ── */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 22px;
+}
+
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeIn 0.4s ease both;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-title {
+  height: 14px;
+  width: 85%;
+  border-radius: 4px;
+}
+
+.skeleton-sub {
+  height: 12px;
+  width: 50%;
+  border-radius: 4px;
+}
+
+/* ── Empty ── */
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 15px;
+  padding: 80px 0;
+}

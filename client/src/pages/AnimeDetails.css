@@ -1,0 +1,223 @@
+.details-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ── Cinematic Backdrop ── */
+.details-backdrop {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  filter: blur(60px) saturate(0.5);
+  transform: scale(1.1);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.details-backdrop-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-root);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.details-main {
+  position: relative;
+  z-index: 2;
+  padding-top: 110px;
+  padding-bottom: 60px;
+}
+
+/* ── Layout ── */
+.details-layout {
+  display: flex;
+  gap: 52px;
+  align-items: flex-start;
+}
+
+/* ── Poster ── */
+.details-poster-col {
+  flex-shrink: 0;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.details-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-subtle);
+}
+
+.details-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.details-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+}
+
+.score-sub {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ── Info ── */
+.details-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.details-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.detail-genre {
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--accent-secondary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.details-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.details-orig-title {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-top: -10px;
+}
+
+.details-meta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  backdrop-filter: blur(8px);
+}
+
+.details-synopsis {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(240, 240, 255, 0.7);
+  max-width: 700px;
+}
+
+.details-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ── Skeleton ── */
+.details-loading { justify-content: center; }
+.details-skeleton-wrap { display: flex; gap: 48px; width: 100%; }
+.details-sk-img { width: 260px; aspect-ratio: 2/3; border-radius: var(--radius-lg); flex-shrink: 0; }
+
+/* ── Relations ── */
+.relations-section {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 60px;
+}
+
+.section-title-sm {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.relations-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.relations-grid::-webkit-scrollbar { height: 4px; }
+.relations-grid::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 2px; }
+
+.relation-card {
+  flex: 0 0 180px;
+  padding: 16px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.relation-card:hover {
+  background: var(--bg-surface-hover);
+  transform: translateY(-2px);
+}
+
+.rel-relation {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-secondary);
+}
+
+.rel-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .details-layout { flex-direction: column; }
+  .details-poster-col { width: 100%; max-width: 260px; align-self: center; }
+}
