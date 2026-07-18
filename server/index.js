@@ -278,7 +278,7 @@ io.on('connection', (socket) => {
 });
 
 // All other routes -> serve React app
-app.all('*', (req, res) => {
+app.get('(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
