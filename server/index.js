@@ -277,8 +277,8 @@ io.on('connection', (socket) => {
   });
 });
 
-// All other routes -> serve React app
-app.get('/:any*', (req, res) => {
+// All other routes -> serve React app (middleware, works in all Express versions)
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
 });
 
